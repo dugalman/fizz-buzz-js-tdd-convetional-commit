@@ -1,5 +1,5 @@
 //import fizzbuzz from './fizzbuzz';
-const fizzbuzz = require('./fizzbuzz');
+const fizzbuzz = require('../src/fizzbuzz');
 
 
 describe('fizzbuzz',()=>{
