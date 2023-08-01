@@ -1,5 +1,7 @@
 # Proyecto que prueba el uso de TDD y Semantic Release
 
+Lo importande de este proyecto son las herremientas de contexto para hacer los comit versionados
+
 # Pasos
 
 Inicializar el un proyecto npm e instalar la libreria de test JEST
