@@ -2,6 +2,4 @@ const {sum } = require('../operation')
 
 
 
-test("adds 1 +2 to equal 3",()=>{
-    expect(sum(1,2)).toBe(555555);
-})
+test("adds 1 +2 to equal 3",()=>{    expect(sum(1,2)).toBe(3);})
