@@ -140,11 +140,20 @@ También puedes recurrir a herramientas más refinadas:
 - Y si utilizas GitLab como respositorio, puedes [probar este código para generar el archivo CHANGELOG](https://medium.com/@SamuelMichaud/generate-a-changelog-from-gitlabs-issue-tracker-9eced2610718).
 
 
+## Poder generar automáticamente el fichero CHANGELOG
+
+Usando la herramienta (https://github.com/conventional-changelog/conventional-changelog) 
+
+Hay que instalarlo en forma global `npm i -g conventional-changelog-cli`
+Y luego ejecutar el comanjdo `conventional-changelog -i CHANGELOG.md -s -r 0`
+
+Se va a crear un archivo `CHANGELOG.md`
+
 
 # Referencias
 
 - [x] [001 - Cómo configurar Husky y Lint-Staged en un proyecto](https://carlosazaustre.es/husky-lintstaged)
 - [x] [002 - Conventional Commits - Especificación para tus mensajes de commit](https://carlosazaustre.es/conventional-commits)
-- [ ] [poder generar automáticamente el fichero CHANGELOG](https://github.com/conventional-changelog/conventional-changelog)
+- [ ] [003 - Poder generar automáticamente el fichero CHANGELOG](https://github.com/conventional-changelog/conventional-changelog)
 - [x] [Guía para los mensajes commit](https://manuel.cillero.es/doc/apuntes-tic/herramientas/git/guia-mensajes-confirmacion-commit/)
 - [x] [Husky y Lint-Staged](https://typicode.github.io/husky/#/)
