@@ -85,8 +85,65 @@ Ahora vamos a añadir el **pre-push hook**, para que antes de hacer un push, se 
 ***Si no tienes tests o estos no pasan, el push no se realizará hasta que lo soluciones.***
 
 
+# Generando el archivo CHANGELOG
+
+Una de las utilidades más inmediatas de un registro de mensajes cuidado y trabajado es la generación del archivo CHANGELOG.
+
+Por ejemplo, podrías crear un script para generar el archivo CHANGELOG según la Operación del asunto, agrupándolos en tres apartados:
+- Funcionalidades o Características (Añade, Modifica, Mejora, Elimina),
+- Corrección de errores (Corrige)
+-  Seguridad (Asegura).
+
+Luego sólo tendrías que repasarlo para eliminar o depurar los mensajes recogidos.
+
+Puedes revisar la sintaxis de todos los mensajes con el comando 
+
+```bash 
+npx commitlint --from HEAD~1 --to HEAD --verbose
+```
+
+Usando Git puedes obtener la lista de todos los commits. Por ejemplo, con sólo el texto del asunto y el identificador completo:
+
+```bash 
+git log {etiqueta} HEAD --pretty=format:%s
+```
+o en una lista web:
+
+```bash 
+git log v2.1.0...v2.1.1 \
+  --pretty=format:'<li><a href="https://gitlab.com/{usuario}/{proyecto}/commit/%H"> ver commit • </a> %s </li>' \
+  --reverse \
+  | grep "#changelog"
+```
+
+o agrupándolos por usuario:
+```bash 
+git shortlog
+```
+
+o mostrando también el identificador corto de cada commit:
+```bash
+git log {etiqueta} HEAD --oneline
+```
+
+o filtrando por los mensajes de corrección de errores:
+```bash
+git log {etiqueta} HEAD --grep Corrige
+```
+
+También puedes recurrir a herramientas más refinadas:
+
+- [git-changelog](https://www.npmjs.com/package/git-changelog), es configurable para definir adecuadamente los filtros de los mensajes.
+- [gitchangelog](https://github.com/vaab/gitchangelog), es compatible con Python 2 y 3 para Linux, Mac y Windows. Está publicado en PyPI y también es configurable.
+- [git-extras](https://github.com/tj/git-extras), paquete para Linux (Debian, Ubuntu) que añade a Git un comando git changelog (leer manual) entre otros muchos comandos.
+- [ReadmeGen](https://github.com/fojuth/readmegen), en este caso es un programa PHP que también busca mensajes con un patrón específico para extraerlos y agruparlos.
+- Y si utilizas GitLab como respositorio, puedes [probar este código para generar el archivo CHANGELOG](https://medium.com/@SamuelMichaud/generate-a-changelog-from-gitlabs-issue-tracker-9eced2610718).
+
+
 
 # Referencias
 
-- [001 - Cómo configurar Husky y Lint-Staged en un proyecto](https://carlosazaustre.es/husky-lintstaged)
-- [Husky y Lint-Staged](https://typicode.github.io/husky/#/)
+- [x] [001 - Cómo configurar Husky y Lint-Staged en un proyecto](https://carlosazaustre.es/husky-lintstaged)
+- [x] [002 - Conventional Commits - Especificación para tus mensajes de commit](https://carlosazaustre.es/conventional-commits)
+- [x] [Guía para los mensajes commit](https://manuel.cillero.es/doc/apuntes-tic/herramientas/git/guia-mensajes-confirmacion-commit/)
+- [x] [Husky y Lint-Staged](https://typicode.github.io/husky/#/)
